@@ -1,0 +1,27 @@
+Interview Questions
+
+Website/Webapp
+1. A webpage with which is running on HTTPS. It have 2 input fields(Username, Password) and a CAPTCHA. What is approach towards this page as an attacker.
+2. Security Headers and Working and reason for applying.
+3. Misconfigured CORS will you check? how and why?
+4. SQL types
+5. XSS Types
+6. SSRF
+
+API
+1. OWASP Top 10
+2. Broken Object Property Level Authorization
+
+Android
+1. Pre-requisites
+2. We set up proxy and set up IP in burp. Interception is not happening. what might be the reason?
+3. Issues faced while installing burp cert in android
+4. SSL pinning Bypass how?
+5. How to intercept proxy unaware apps?
+6. What do we check in Android Manifest file
+7. Exploitation
+
+iOS
+1. Pre-requisites
+2. Setting Up proxy
+3. Plist file? what to check in them?
