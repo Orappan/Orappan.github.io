@@ -1,12 +1,26 @@
-Interview Questions
+Interview Questions (2+ years experience)
+
+Tip: Have a proper self introduction with:
+     1. UG/PG info 
+     2. Current designation 
+     3. Years of experience in the company
+     4. Technologies known
+     5. Something unique (like worked on specific project or certain client location)
+     6. Certifications 
+     7. Future Plans (like pursuing a certification)
+     8. Hobbies (Related to the field)
 
 Website/Webapp
-1. A webpage with which is running on HTTPS. It have 2 input fields(Username, Password) and a CAPTCHA. What is approach towards this page as an attacker.
-2. Security Headers and Working and reason for applying.
-3. Misconfigured CORS will you check? how and why?
-4. SQL types
-5. XSS Types
-6. SSRF
+1. Prerequisites of audit.(Repeated question in multiple interviews)
+2. Approach towards an app (Repeated questions in multiple interviews)
+3. A webpage with which is running on HTTPS. It have 2 input fields(Username, Password) and a CAPTCHA. What is approach towards this page as an attacker.
+4. Security Headers and Working and reason for applying.
+5. Misconfigured CORS will you check? how and why?
+6. SQL types
+7. XSS Types
+8. SSRF
+9. Session related vulnerabilities 
+10. SQL injection login bypass if = is blacklisted 
 
 API
 1. OWASP Top 10
@@ -25,3 +39,9 @@ iOS
 1. Pre-requisites
 2. Setting Up proxy
 3. Plist file? what to check in them?
+
+Other 
+1. Ports and the services running in it
+2. OSI Layers
+3. ARP and working 
+4. Smurf attacks
