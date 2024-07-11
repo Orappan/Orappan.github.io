@@ -45,3 +45,5 @@ Other
 2. OSI Layers
 3. ARP and working 
 4. Smurf attacks
+5. vlan
+6. natting
