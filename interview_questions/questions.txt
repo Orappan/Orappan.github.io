@@ -34,6 +34,7 @@ Android
 5. How to intercept proxy unaware apps?
 6. What do we check in Android Manifest file
 7. Exploitation
+8. After bypassing ssl pinning will be be able to moniter the traffic?
 
 iOS
 1. Pre-requisites
@@ -47,3 +48,5 @@ Other
 4. Smurf attacks
 5. vlan
 6. natting
+7. Smurf attack
+8. Ping of attack
