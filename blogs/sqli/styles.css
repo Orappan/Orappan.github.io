@@ -1,6 +1,6 @@
 /* Reset some default styles */
 * {
-    margin: 1;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -22,6 +22,7 @@ body {
     width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    font-weight: 900;
 }
 
 /* Container for navbar content */
@@ -71,10 +72,11 @@ body {
     top: 100%;
     left: 0;
     background-color: #333333; /* Same as navbar background */
-    min-width: 150px;
+    min-width: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 2000;
     border-radius: 4px;
+    margin-top: 10px; /* Add margin to create space */
 }
 
 .blogs-dropdown:hover .blogs-dropdown-contents {
@@ -86,27 +88,12 @@ body {
 }
 
 .blogs-dropdown-contents a {
+    display: block; /* Ensure the link takes the full width */
     color: #fff;
+    padding: 10px; /* Add padding to create space */
+    border-radius: 4px; /* Add border radius to match the dropdown */
 }
 
 .blogs-dropdown-contents a:hover {
     background-color: #000000; /* Darker shade for hover */
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .navbar-menu ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .blogs-dropdown .blogs-dropdown-contents {
-        position: static;
-        display: block;
-        box-shadow: none;
-    }
-
-    .blogs-dropdown:hover .blogs-dropdown-contents {
-        display: block;
-    }
 }
