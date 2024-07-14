@@ -49,4 +49,4 @@ Other
 5. vlan
 6. natting
 7. Smurf attack
-8. Ping of death attack
+8. Ping of death attack.
