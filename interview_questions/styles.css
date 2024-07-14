@@ -131,8 +131,17 @@ body {
     font-family: Verdana;
 }
 
+.question-answer h2{
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-family: Verdana;
+}
+
 .question-box {
     margin-top: 20px;
+    font-size: 1em;
+    line-height: 1.5;
+    font-family:'Trebuchet MS';
 }
 
 .single-question {
@@ -143,8 +152,6 @@ body {
 .question {
     display: block;
     padding: 10px;
-    font-size: 1em;
-    font-family:'Trebuchet MS';
     cursor: pointer;
     background-color: #444444;
     border-radius: 4px;

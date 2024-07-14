@@ -78,7 +78,7 @@ body {
 }
 
 /* Responsive styles */
-@media (max-width: 400px) {
+@media (max-width: 768px) {
     .navbar-menu ul {
         display: none;
         flex-direction: column;
