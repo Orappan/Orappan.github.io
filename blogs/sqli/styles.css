@@ -61,43 +61,6 @@ body {
     background-color: #333333; /* Darker shade for hover */
 }
 
-/* Dropdown menu styles */
-.blogs-dropdown {
-    position: relative;
-}
-
-.blogs-dropdown .blogs-dropdown-contents {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #333333; /* Same as navbar background */
-    min-width: 250px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 2000;
-    border-radius: 4px;
-    margin-top: 10px; /* Add margin to create space */
-}
-
-.blogs-dropdown:hover .blogs-dropdown-contents {
-    display: block;
-}
-
-.blogs-dropdown-contents li {
-    padding: 10px 15px;
-}
-
-.blogs-dropdown-contents a {
-    display: block; /* Ensure the link takes the full width */
-    color: #fff;
-    padding: 10px; /* Add padding to create space */
-    border-radius: 4px; /* Add border radius to match the dropdown */
-}
-
-.blogs-dropdown-contents a:hover {
-    background-color: #000000; /* Darker shade for hover */
-}
-
 /* Hamburger menu styles */
 .hamburger {
     display: none;
@@ -132,27 +95,7 @@ body {
         text-align: center;
     }
 
-    .blogs-dropdown .blogs-dropdown-contents {
-        position: static;
-        box-shadow: none;
-        margin-top: 0;
-        border-radius: 0;
-    }
-
-    .blogs-dropdown:hover .blogs-dropdown-contents {
-        display: none;
-    }
-
-    .blogs-dropdown.active .blogs-dropdown-contents {
-        display: block;
-    }
-
     .hamburger {
         display: flex;
     }
-}
-
-/* Reset active state for dropdown when toggling hamburger menu */
-.navbar-menu.active .blogs-dropdown-contents {
-    display: none;
 }
