@@ -10,7 +10,7 @@
         <header class="navbar">
             <div class="navbar-container">
                 <div class="navbar-heading">💉SQL Injection</div>
-                <nav class="navbar-menu">
+                <nav class="navbar-menu" id="navbar-menu">
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li class="blogs-dropdown">
@@ -18,13 +18,22 @@
                             <ul class="blogs-dropdown-contents">
                                 <li><a href="/blogs/sqli/">💉SQL Injection</a></li>
                                 <li><a href="/blogs/xss/">XSS</a></li>
-                                <li><a href="/interview_questions/">Interview Questions</a>
                             </ul>
                         </li>
                         <li><a href="/contact">Contact</a></li>
                     </ul>
                 </nav>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </header>
+        <script>
+            document.getElementById('hamburger').addEventListener('click', function () {
+                document.getElementById('navbar-menu').classList.toggle('active');
+            });
+        </script>
     </body>
 </html>
