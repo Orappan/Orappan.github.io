@@ -32,7 +32,7 @@ Android
 3. Issues faced while installing burp cert in android
 4. SSL pinning Bypass how?
 5. How to intercept proxy unaware apps?
-6. What do we check in Android Manifest file
+6. What do we check in Android Manifest file?
 7. Exploitation
 8. After bypassing ssl pinning will we be be able to moniter the HTTP traffic?
 
@@ -50,3 +50,5 @@ Other
 6. natting
 7. Smurf attack
 8. Ping of death attack.
+9. Explain CIA triad with example
+10. What is your approach when the client tells you that the reported vulnerability is a functionality of the application.
