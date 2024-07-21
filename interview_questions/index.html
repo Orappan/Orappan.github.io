@@ -34,6 +34,71 @@
             </section>
             <section class="question-answer">
                 <h1>Questions & Answers</h1>
+                <!--Common Questions Dropdown-->
+                <div class="question-box">
+                    <div class="single-question">
+                        <input type="checkbox" id="common" class="question-toggle">
+                        <label class="question-topic" for="common">Common questions for all categories</label>
+                        <div class="answer">
+                            <!--Question 1 Common-->
+                            <div class="question-box">
+                                <div class="single-question">
+                                    <input type="checkbox" id="q1c" class="question-toggle">
+                                    <label class="question" for="q1c">What are the prerequisites for the audit?</label>
+                                        <div class="answer">
+                                            <p>
+                                                <ul style="list-style-type: square; padding: 10px;">
+                                                    <li>The website/web application which need to be audited are to be hosted on a staging environment.</li>
+                                                    <li>Backup of the whole applications should be kept.</li>
+                                                    <li>All the functionalities should be fully functional along with all the gateways like Email, Payment, SMS (if Any) are enabled.</li>
+                                                    <li>IP should be whitelisted in the firewall if the application is protected with firewall.</li>
+                                                    <li>Web Application Staging URL.</li>
+                                                    <li>At least 2 Credentials for all user types.</li>
+                                                    <li>Walkthrough of the application.</li>
+                                                </ul>
+                                            </p>
+                                        </div>
+                                </div>
+                            </div>
+                            <!--Question 2 Common-->
+                            <div class="question-box">
+                                <div class="single-question">
+                                    <input type="checkbox" id="q2c" class="question-toggle">
+                                    <label class="question" for="q2c">What is your approach towards a VAPT audit?</label>
+                                        <div class="answer">
+                                            <p>
+                                                <ul style="list-style-type: square; padding: 10px;">
+                                                    <li>I start by thoroughly understanding the functionalities, architecture, technologies user in the application.</li>
+                                                    <li>After that I'll proceed to find out the entry points for an attack like identifying input fields, authentication mechanisms and external integrations.</li>
+                                                    <li>Then I'll start to perform both manual and automated testing as automated testing will help in finding common vulnerabilities like injections, directory listing etc.</li>
+                                                    <li>After that more deep manual testing to find vulnerabilities in application's logic, configurations, access control and etc.</li>
+                                                    <li>For critical vulnerabilities I'll perform penetration testing or exploiting the found vulnerabilities to demonstrate the impact of the vulnerabilities.</li>
+                                                    <li>Next is preparation of detailed vulnerability report that includes executive summary, technical findings, risk assessment and recommendation for patching/remediation.</li>
+                                                    <li>I also provide support to developers/clients after assessment to help them understand vulnerabilities and implement the recommended patches. This can include re-testing the application to ensure the vulnerabilities are properly patched.</li>
+                                                </ul>
+                                            </p>
+                                        </div>
+                                </div>
+                            </div>
+                            <!--Question 3 Common-->
+                            <div class="question-box">
+                                <div class="single-question">
+                                    <input type="checkbox" id="q3c" class="question-toggle">
+                                    <label class="question" for="q3c">What will you do when the developer/client don't accept the reported vulnerabilities and claim that those are functionalities of the application?</label>
+                                        <div class="answer">
+                                            <p>
+                                                <ul style="list-style-type: square; padding: 10px;">
+                                                    <li>First, I'll carefully review the reported vulnerability and compare them with the developer's/client's claim checking against security best practices and standards ensuring there is no misunderstanding or misinterpretation.</li>
+                                                    <li>I would find references to support my findings that define those are vulnerabilities rather than functionalities.</li>
+                                                    <li>Then I would provide a detailed technical explanation of the vulnerabilities and demonstrate how it can be exploited along with the risk and impact along with it.</li>
+                                                    <li>If the developer/client still doesn't accept the vulnerability then I would offer an alternate mitigation or compromises that could reduce the risk while addressing the functionality of the application.</li>
+                                                </ul>
+                                            </p>
+                                        </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
                 <!--Web Dropdown-->
                 <div class="question-box">
                     <div class="single-question">
@@ -44,7 +109,7 @@
                             <div class="question-box">
                                 <div class="single-question">
                                     <input type="checkbox" id="q1w" class="question-toggle">
-                                    <label class="question" for="q1w">What are the prerequisites for the audit?</label>
+                                    <label class="question" for="q1w">A webpage with which is running on HTTPS, it have 2 input fields (Username, Password) and a CAPTCHA. What is approach towards this page as an attacker?</label>
                                         <div class="answer">
                                             <p>
                                                 <ul style="list-style-type: square; padding: 10px;">
@@ -64,7 +129,17 @@
                             <div class="question-box">
                                 <div class="single-question">
                                     <input type="checkbox" id="q2w" class="question-toggle">
-                                    <label class="question" for="q2w">What are the prerequisites for the audit?</label>
+                                    <label class="question" for="q2w">What is your approach towards a webapp for VAPT?</label>
+                                        <div class="answer">
+                                            <p>Some dumb answer</p>
+                                        </div>
+                                </div>
+                            </div>
+                            <!--Question 3 web-->
+                            <div class="question-box">
+                                <div class="single-question">
+                                    <input type="checkbox" id="q3w" class="question-toggle">
+                                    <label class="question" for="q3w">What are the prerequisites for the audit?</label>
                                         <div class="answer">
                                             <p>Some dumb answer</p>
                                         </div>
