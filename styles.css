@@ -1,0 +1,30 @@
+body {
+  background: #202020;
+}
+
+#ground {
+  position: absolute;
+  background: #ad8766;
+  top: 18em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+#shadow {
+  position: absolute;
+  top: 19em;
+  left: 50%;
+  margin-left: -1em;
+  width: 2em;
+  height: 1em;
+  background: #111;
+  border-radius: 50%;
+  -webkit-animation:   pulse .5s infinite alternate;
+  -moz-animation:     pulse .5s infinite alternate;
+  -o-animation:       pulse .5s infinite alternate;
+  animation:          pulse .5s infinite alternate;
+}
+
+@-webkit-keyframes pulse {
