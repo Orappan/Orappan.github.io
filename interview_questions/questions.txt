@@ -18,9 +18,10 @@ Website/Webapp
 5. Misconfigured CORS will you check? how and why?
 6. SQL types
 7. XSS Types
-8. SSRF
-9. Session related vulnerabilities 
-10. SQL injection login bypass if = is blacklisted 
+8. SSRF - what kind of URLs which you'll be chekcking for SSRF
+9. Prerequisites for exploiting CSRF
+10. Session related vulnerabilities 
+11. SQL injection login bypass if = is blacklisted 
 
 API
 1. OWASP Top 10
