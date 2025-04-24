@@ -1,4 +1,0 @@
-About HTST
-    HSTS is a security header that tells browsers to always use HTTPS when communicating with your site, but only after the site has been accessed over HTTPS at least once.
-    Once a browser has seen the HSTS header, it will automatically convert all future HTTP requests to HTTPS for that domain, but this only applies after the initial HTTPS connection.
-
