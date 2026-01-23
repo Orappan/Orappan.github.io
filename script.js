@@ -1,152 +1,201 @@
-// Mobile Navigation
-const burger = document.querySelector('.burger');
-const nav = document.querySelector('.nav-links');
-const navLinks = document.querySelectorAll('.nav-links li');
+/* ===============================
+   PROFESSION CHANGING TEXT
+================================ */
 
-// Toggle Nav
-burger.addEventListener('click', () => {
-    nav.classList.toggle('nav-active');
+// Wait until the HTML page has fully loaded before running the script.
+// This ensures that the element we want to animate actually exists.
+document.addEventListener("DOMContentLoaded", () => {
 
-    // Animate Links
-    navLinks.forEach((link, index) => {
-        if (link.style.animation) {
-            link.style.animation = '';
-        } else {
-            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-        }
-    });
+  // Select the HTML element where the animated text will appear.
+  // This is the element whose text content will change dynamically.
+  const textElement = document.querySelector("#profession");
 
-    // Burger Animation
-    burger.classList.toggle('toggle');
+  // Characters to use for the "scrambling" effect.
+  // When a letter hasn't been revealed yet, a random letter from this string will be shown.
+  const alphabetChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  // List of words or phrases that will appear one after another in the animation.
+  const wordList = [
+    "Cybersecurity Enthusiast",
+    "Penetration Tester",
+    "Bug Bounty Hunter",
+    "Application Security Expert"
+    //"Entrepreneur",
+  ];
+
+  // Keep track of the index of the current word being animated.
+  let currentWordIndex = 0;
+
+  // Will store the ID of the current animation frame so it can be canceled when switching words.
+  let animationFrameId;
+
+  // Function to animate a single word from the word list
+  const animateText = () => {
+
+    // How many letters of the current word have been revealed so far.
+    // Starts at 0 for a new word.
+    let revealProgress = 0;
+
+    // The word currently being animated.
+    const currentWord = wordList[currentWordIndex];
+
+    // This function is called repeatedly to create the animation frame by frame.
+    const animateStep = () => {
+
+      // Build the text that will appear on the screen during this frame.
+      // Split the word into individual letters to process each one separately.
+      textElement.textContent = currentWord
+        .split("") 
+        .map((char, charIndex) => {
+          // If the current letter's index is less than revealProgress, show the real letter.
+          if (charIndex < revealProgress) return char;
+
+          // If it's a space, leave it as a space (we don't scramble spaces)
+          if (char === " ") return " ";
+
+          // Otherwise, show a random letter for the scrambling effect
+          // Math.random() * 26 generates a number between 0 and 26 (exclusive)
+          // The bitwise OR "| 0" converts it to an integer
+          return alphabetChars[Math.random() * 26 | 0];
+        })
+        .join(""); // Turn the array of letters back into a string
+
+      // Slowly reveal the next letter
+      // revealProgress increases by 0.33 each frame for a smooth gradual reveal
+      revealProgress += 0.33;
+
+      // If there are still letters to reveal, schedule the next animation frame
+      if (revealProgress <= currentWord.length) {
+        animationFrameId = requestAnimationFrame(animateStep);
+      }
+      // Once revealProgress exceeds the word length, the animation stops naturally
+    };
+
+    // Start the animation loop for this word
+    animationFrameId = requestAnimationFrame(animateStep);
+  };
+
+  // Immediately start animating the first word when the page loads
+  animateText();
+
+  // Every 4 seconds, switch to the next word in the list
+  setInterval(() => {
+
+    // Stop the current animation to avoid overlapping frames
+    cancelAnimationFrame(animationFrameId);
+
+    // Move to the next word
+    // The modulo operator (%) makes sure that after the last word,
+    // we go back to the first word (creates an infinite loop)
+    currentWordIndex = (currentWordIndex + 1) % wordList.length;
+
+    // Start animating the new word
+    animateText();
+
+  }, 3000); // 3000 milliseconds = 3 seconds
 });
 
-// Smooth Scrolling for all links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
 
-        // Close mobile menu if open
-        if (nav.classList.contains('nav-active')) {
-            nav.classList.remove('nav-active');
-            burger.classList.remove('toggle');
-            navLinks.forEach(link => {
-                link.style.animation = '';
-            });
-        }
+/* ===============================
+   PROJECT HORIZONTAL SCROLL CONTROLS
+================================ */
 
-        // Smooth scroll to target
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 70,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Form Submission
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        // Get form values
-        const name = this.querySelector('input[type="text"]').value;
-        const email = this.querySelector('input[type="email"]').value;
-        const message = this.querySelector('textarea').value;
-
-        // Here you would typically send the data to a server
-        console.log({ name, email, message });
-
-        // Show success message
-        alert('Thank you for your message! I will get back to you soon.');
-
-        // Reset form
-        this.reset();
-    });
-}
-
-// Add animation on scroll
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const windowHeight = window.innerHeight;
-
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        const sectionVisible = 150;
-
-        if (sectionTop < windowHeight - sectionVisible) {
-            section.style.opacity = '1';
-            section.style.transform = 'translateY(0)';
-        }
-    });
-});
-
-// Initialize sections with fade-in effect
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-
-    // Trigger the first section to appear
-    setTimeout(() => {
-        sections[0].style.opacity = '1';
-        sections[0].style.transform = 'translateY(0)';
-    }, 100);
-});
-
-// Horizontal scroll functionality
-const projectsContainer = document.querySelector('.projects-container');
+const projectContainer = document.querySelector('.projects-container');
 const scrollLeftBtn = document.querySelector('.scroll-left');
 const scrollRightBtn = document.querySelector('.scroll-right');
 
-if (projectsContainer) {
-    // Scroll buttons
-    scrollLeftBtn.addEventListener('click', () => {
-        projectsContainer.scrollBy({
-            left: -300,
-            behavior: 'smooth'
-        });
-    });
+const scrollAmount = 320;
 
-    scrollRightBtn.addEventListener('click', () => {
-        projectsContainer.scrollBy({
-            left: 300,
-            behavior: 'smooth'
-        });
+if (scrollLeftBtn && projectContainer) {
+  scrollLeftBtn.addEventListener('click', () => {
+    projectContainer.scrollBy({
+      left: -scrollAmount,
+      behavior: 'smooth'
     });
+  });
+}
 
-    // Touch/swipe detection
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    projectsContainer.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - projectsContainer.offsetLeft;
-        scrollLeft = projectsContainer.scrollLeft;
+if (scrollRightBtn && projectContainer) {
+  scrollRightBtn.addEventListener('click', () => {
+    projectContainer.scrollBy({
+      left: scrollAmount,
+      behavior: 'smooth'
     });
+  });
+}
 
-    projectsContainer.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
+/* ===============================
+   JOB EXPERIENCE CALCULATOR
+================================ */
 
-    projectsContainer.addEventListener('mouseup', () => {
-        isDown = false;
-    });
+// ---------- Helper function ----------
+const monthsBetween = (start, end) => {
+  let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+  if (end.getDate() < start.getDate()) months--;
+  return months;
+};
 
-    projectsContainer.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - projectsContainer.offsetLeft;
-        const walk = (x - startX) * 2;
-        projectsContainer.scrollLeft = scrollLeft - walk;
-    });
+// ---------- Helper to convert human-friendly month to JS month ----------
+const makeDate = (year, month, day) => new Date(year, month - 1, day); // month: 1=Jan, 2=Feb, etc.
+
+// ---------- JOBS DATA ----------
+const jobs = [
+  { start: makeDate(2021, 3, 12), end: makeDate(2024, 3, 28) }, // Job 1 March 12 2021
+  //{ start: makeDate(2023, 4, 8), end: makeDate(2023, 5, 21) },  // Job 2
+  { start: makeDate(2024, 4, 14), end: new Date() }             // Current job April 12 2025
+];
+
+// ---------- TOTAL EXPERIENCE ----------
+const totalMonths = jobs.reduce((sum, job) => sum + monthsBetween(job.start, job.end), 0);
+const experienceYears = (totalMonths / 12).toFixed(1);
+
+// ---------- OUTPUT ----------
+document.getElementById("experience").innerText = `${experienceYears} years`;
+
+
+/* ===============================
+   CONTACT FORM ACTIONS
+================================ */
+
+const sendEmailBtn = document.getElementById('sendEmail');
+const sendWhatsAppBtn = document.getElementById('sendWhatsApp');
+
+const nameInput = document.getElementById('name');
+const messageInput = document.getElementById('message');
+
+/* Send Email */
+if (sendEmailBtn) {
+  sendEmailBtn.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (!name || !message) {
+      alert('Please fill in both Name and Message.');
+      return;
+    }
+
+    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+    const body = encodeURIComponent(message);
+
+    window.location.href = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
+  });
+}
+
+/* Send WhatsApp */
+if (sendWhatsAppBtn) {
+  sendWhatsAppBtn.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (!name || !message) {
+      alert('Please fill in both Name and Message.');
+      return;
+    }
+
+    const fullMessage = encodeURIComponent(
+      `Hi Jithan, my name is ${name}.\n\n${message}`
+    );
+
+    window.open(`https://wa.me/919526375741?text=${fullMessage}`, '_blank');
+  });
 }
