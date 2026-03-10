@@ -142,7 +142,7 @@ const makeDate = (year, month, day) => new Date(year, month - 1, day); // month:
 const jobs = [
   { start: makeDate(2021, 3, 12), end: makeDate(2024, 3, 28) }, // Job 1 March 12 2021
   //{ start: makeDate(2023, 4, 8), end: makeDate(2023, 5, 21) },  // Job 2
-  { start: makeDate(2024, 4, 14), end: new Date() }             // Current job April 12 2025
+  { start: makeDate(2025, 4, 14), end: new Date() }             // Current job April 12 2025
 ];
 
 // ---------- TOTAL EXPERIENCE ----------
