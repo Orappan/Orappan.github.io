@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://orappan.github.io/sitemap.xml
